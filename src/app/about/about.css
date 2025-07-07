@@ -1,0 +1,25 @@
+.body{
+  overflow: auto;
+}
+
+.hackfest-container{
+  top: 200px;
+}
+
+.card-container{
+  position: absolute;
+  background-color: transparent;
+  top: 300px;
+  left: calc(50% - 250px);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.card1, .card2, .card3, .card4, .card5{
+  width: 100%;
+  height: 150px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.25);
+}
