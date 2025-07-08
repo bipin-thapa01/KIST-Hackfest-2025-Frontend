@@ -4,7 +4,7 @@ import "./page.css";
 import Home from "./Home";
 import { useRouter } from "next/navigation";
 
-export default function page(){
+export default function Page(){
   const router = useRouter();
 
   const home = () =>{

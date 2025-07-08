@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import "../page.css";
 import "./about.css";
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
 
   const home = () =>{
