@@ -25,6 +25,7 @@
   width: 140px;
   border:20px solid #0EA5E9;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .hackfest-container{

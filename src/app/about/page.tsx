@@ -1,10 +1,19 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import "../page.css";
 import "./about.css";
 
 export default function page() {
+  const router = useRouter();
+
+  const home = () =>{
+    router.push('/');
+  }
+
   return (
     <div className="body">
-      <img src="logo.jpg" alt="logo" className="logo" />
+      <img src="logo.jpg" alt="logo" onClick={home} className="logo" />
       <div className="hackfest-container">
         <div className="text-hackfest-main">
           KIST Hackfest 2025
