@@ -17,11 +17,144 @@
   row-gap: 30px;
 }
 
-.card1, .card2, .card3, .card4, .card5{
+.card1, .card2, .card3{
   width: 100%;
-  height: 150px;
+  height: 180px;
   border-radius: 30px;
   box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card1-head, .card2-head, .card3-head{
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  background: linear-gradient(83deg, rgba(67, 191, 247, 1) 0%, rgba(255, 251, 251, 1) 51%, rgba(153, 153, 153, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.card1-description, .card2-description, .card3-description{
+  color: white;
+  text-align: center;
+  margin: 0px 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.about-the-event, .competitions{
+  position: absolute;
+  top: calc(50vh - 200px);
+  background-color: rgb(7, 92, 126);
+  width: 500px;
+  left: calc(50% - 250px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+  padding-bottom: 20px;
+  display: none;
+  z-index: 10;
+}
+
+.about-the-event-head, .competitions-head{
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  background: linear-gradient(83deg, rgba(67, 191, 247, 1) 0%, rgba(255, 251, 251, 1) 51%, rgba(153, 153, 153, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-the-event-card1, .about-the-event-card2, .about-the-event-card3, .competitions-card1, .competitions-card2, .competitions-card3{
+  width: 90%;
+  height: 120px;
+  background-color: #D9D9D9;
+  opacity: 0.4;
+  border-radius: 10px;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  column-gap: 60px;
+  flex: 1;
+}
+
+.calendar, .location, .team, .crosshair, .computer, .code{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-icon, .location-icon, .team-icon, .crosshair-icon, .computer-icon, .code-icon{
+  color: white;
+  font-size: 40px;
+}
+
+.event-detail, .location-detail, .team-detail, .competitions-detail{
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+}
+
+.event-detail div, .location-detail div, .team-detail div, .competitions-detail div{
+  background-color: #D9D9D9;
+  color: black;
+  font-size: 20px;
+}
+
+.register-button{
+  border: 0px;
+  width: 60%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: rgb(187, 187, 187);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-button:hover{
+  background-color: rgb(7, 7, 17);
+}
+
+.cross{
+  color: black;
+  background-color: rgb(7, 92, 126);
+  position: absolute;
+  right: 28px;
+  top: 26px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 }
 
 @media (max-width: 600px){
@@ -31,9 +164,6 @@
   }
 }
 
-/* @media (max-width: 400px){
-  .card-container{
-    width: 300px;
-    left: calc(50% - 150px);
-  }
-} */
+@media (max-width: 550px){
+
+}
