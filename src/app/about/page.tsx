@@ -17,22 +17,31 @@ export default function Page() {
     const popup = document.getElementById('popup');
     if(popup instanceof HTMLElement){
        popup.style.opacity = '0.9';
+       popup.style.pointerEvents = 'auto';
     }
     const event = document.getElementById('event');
     if(event instanceof HTMLElement){
       event.style.display = 'flex';
     }
-    
+    const body = document.getElementById('main-container');
+    if(body instanceof HTMLElement){
+      body.style.overflow = 'hidden';
+    }
   }
 
   const popup2 = () =>{
     const popup = document.getElementById('popup');
     if(popup instanceof HTMLElement){
        popup.style.opacity = '0.9';
+       popup.style.pointerEvents = 'auto';
     }
     const competition = document.getElementById('competition');
     if(competition instanceof HTMLElement){
       competition.style.display = 'flex';
+    }
+    const body = document.getElementById('main-container');
+    if(body instanceof HTMLElement){
+      body.style.overflow = 'hidden';
     }
   }
 
@@ -40,6 +49,11 @@ export default function Page() {
     const popup = document.getElementById('popup');
     if(popup instanceof HTMLElement){
        popup.style.opacity = '0.9';
+       popup.style.pointerEvents = 'auto';
+    }
+    const body = document.getElementById('main-container');
+    if(body instanceof HTMLElement){
+      body.style.overflow = 'hidden';
     }
   }
 

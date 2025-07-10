@@ -11,10 +11,15 @@ export default function Card2() {
     const popup = document.getElementById('popup');
     if(popup instanceof HTMLElement){
        popup.style.opacity = '0';
+       popup.style.pointerEvents = 'none';
     }
     const competition = document.getElementById('competition');
     if(competition instanceof HTMLElement){
       competition.style.display = 'none';
+    }
+    const body = document.getElementById('main-container');
+    if(body instanceof HTMLElement){
+      body.style.overflow = '';
     }
   }
 

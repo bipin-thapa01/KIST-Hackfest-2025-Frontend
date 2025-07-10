@@ -51,8 +51,8 @@
 }
 
 .about-the-event, .competitions{
-  position: absolute;
-  top: calc(50vh - 200px);
+  position: fixed;
+  top: calc(50vh - 250px);
   background-color: rgb(7, 92, 126);
   width: 500px;
   left: calc(50% - 250px);
@@ -144,7 +144,7 @@
 }
 
 .blur{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -165,5 +165,44 @@
 }
 
 @media (max-width: 550px){
+  .about-the-event, .competitions{
+    top: calc(50vh - 200px);
+    width: 90vw;
+    left: 5vw;
+  }
 
+  .event-detail div, .location-detail div, .team-detail div, .competitions-detail div{
+    font-size: 15px;
+  }
+
+  .competitions-card3{
+    column-gap: 40px;
+  }
+}
+
+
+@media (max-width: 420px){
+  .calendar-icon, .location-icon, .team-icon, .crosshair-icon, .computer-icon, .code-icon{
+    font-size: 25px;
+  }
+
+  .calendar, .location, .team, .crosshair, .computer, .code{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .competitions-detail div{
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .cross{
+    right: 15px;
+    top: 27px;
+    font-size: 16px;
+  }
 }

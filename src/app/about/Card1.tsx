@@ -12,10 +12,15 @@ export default function Card1() {
     const popup = document.getElementById('popup');
     if(popup instanceof HTMLElement){
        popup.style.opacity = '0';
+       popup.style.pointerEvents = 'none';
     }
     const event = document.getElementById('event');
     if(event instanceof HTMLElement){
       event.style.display = 'none';
+    }
+    const body = document.getElementById('main-container');
+    if(body instanceof HTMLElement){
+      body.style.overflow = '';
     }
   }
 
