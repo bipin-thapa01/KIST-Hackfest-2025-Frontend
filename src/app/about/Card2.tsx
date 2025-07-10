@@ -8,8 +8,14 @@ import { FaCode } from "react-icons/fa";
 export default function Card2() {
 
   const cross = () =>{
-    document.getElementById('popup').style.opacity = '0';
-    document.getElementById('competition').style.display = 'none';
+    const popup = document.getElementById('popup');
+    if(popup instanceof HTMLElement){
+       popup.style.opacity = '0';
+    }
+    const competition = document.getElementById('competition');
+    if(competition instanceof HTMLElement){
+      competition.style.display = 'none';
+    }
   }
 
   return (

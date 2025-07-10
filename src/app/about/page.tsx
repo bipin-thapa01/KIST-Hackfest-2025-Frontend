@@ -6,11 +6,6 @@ import Card2 from "./Card2";
 import "../page.css";
 import "./about.css";
 
-import { FaCalendarAlt } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { RiTeamFill } from "react-icons/ri";
-import { ImCross } from "react-icons/im";
-
 export default function Page() {
   const router = useRouter();
 
@@ -19,21 +14,37 @@ export default function Page() {
   }
 
   const popup1 = () => {
-    document.getElementById('popup').style.opacity = '0.9';
-    document.getElementById('event').style.display = 'flex';
+    const popup = document.getElementById('popup');
+    if(popup instanceof HTMLElement){
+       popup.style.opacity = '0.9';
+    }
+    const event = document.getElementById('event');
+    if(event instanceof HTMLElement){
+      event.style.display = 'flex';
+    }
+    
   }
 
   const popup2 = () =>{
-    document.getElementById('popup').style.opacity = '0.9';
-    document.getElementById('competition').style.display = 'flex';
+    const popup = document.getElementById('popup');
+    if(popup instanceof HTMLElement){
+       popup.style.opacity = '0.9';
+    }
+    const competition = document.getElementById('competition');
+    if(competition instanceof HTMLElement){
+      competition.style.display = 'flex';
+    }
   }
 
   const popup3 = () =>{
-    document.getElementById('popup').style.opacity = '0.9';
+    const popup = document.getElementById('popup');
+    if(popup instanceof HTMLElement){
+       popup.style.opacity = '0.9';
+    }
   }
 
   return (
-    <div className="body">
+    <div className="body" id="main-container">
       <img src="logo.jpg" alt="logo" onClick={home} className="logo" />
       <div className="hackfest-container">
         <div className="text-hackfest-main">

@@ -9,8 +9,14 @@ import { ImCross } from "react-icons/im";
 export default function Card1() {
 
   const cross = () =>{
-    document.getElementById('popup').style.opacity = '0';
-    document.getElementById('event').style.display = 'none';
+    const popup = document.getElementById('popup');
+    if(popup instanceof HTMLElement){
+       popup.style.opacity = '0';
+    }
+    const event = document.getElementById('event');
+    if(event instanceof HTMLElement){
+      event.style.display = 'none';
+    }
   }
 
   return (
