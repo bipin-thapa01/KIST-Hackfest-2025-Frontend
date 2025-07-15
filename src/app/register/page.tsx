@@ -10,7 +10,7 @@ export default function Page() {
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    let formOutput: { [key: string]: string | object } = {};
+    const formOutput: { [key: string]: string | object } = {};
 
     const email = document.getElementById("email") as HTMLInputElement;
 
@@ -35,7 +35,7 @@ export default function Page() {
     if (category instanceof HTMLElement) {
       if (category.value === "Hackathon") {
 
-        let members: { [key: string]: string } = {};
+        const members: { [key: string]: string } = {};
 
         const member1 = document.getElementById("member1") as HTMLInputElement;
 
