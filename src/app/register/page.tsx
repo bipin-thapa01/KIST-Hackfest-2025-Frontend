@@ -3,7 +3,6 @@
 import "../page.css";
 import "../about/about.css";
 import "./register.css";
-import { Html } from "next/document";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 export default function Page() {
@@ -11,7 +10,7 @@ export default function Page() {
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    var formOutput: { [key: string]: string | object } = {};
+    let formOutput: { [key: string]: string | object } = {};
 
     const email = document.getElementById("email") as HTMLInputElement;
 
@@ -36,7 +35,7 @@ export default function Page() {
     if (category instanceof HTMLElement) {
       if (category.value === "Hackathon") {
 
-        var members: { [key: string]: string } = {};
+        let members: { [key: string]: string } = {};
 
         const member1 = document.getElementById("member1") as HTMLInputElement;
 
@@ -107,6 +106,13 @@ export default function Page() {
   }
 
   const chooseCategory = () => {
+
+    const revert = document.getElementById("revert");
+
+    if(revert instanceof HTMLElement){
+      revert.classList.remove("hide");
+    }
+
     const chooseButton = document.getElementById("category-button-id");
 
     if (chooseButton instanceof HTMLElement) {
@@ -148,6 +154,54 @@ export default function Page() {
     }
   }
 
+  const undoCategory = () =>{
+    const revert = document.getElementById("revert");
+
+    if(revert instanceof HTMLElement){
+      revert.classList.add("hide");
+    }
+
+    const chooseButton = document.getElementById("category-button-id");
+
+    if (chooseButton instanceof HTMLElement) {
+      chooseButton.classList.remove('hide');
+
+      const category = document.getElementById("category") as HTMLSelectElement;
+
+      if (category instanceof HTMLElement) {
+        const cat = category.value;
+
+        if (cat === 'Hackathon') {
+          const hackathon = document.getElementById("hackathon-names");
+
+          if (hackathon instanceof HTMLElement) {
+            hackathon.classList.add('hide');
+          }
+        }
+        else {
+          const name = document.getElementById("other-name");
+
+          if (name instanceof HTMLElement) {
+            name.classList.add('hide');
+          }
+        }
+
+        const elements = document.querySelectorAll('.common-class');
+
+        elements.forEach((element) => {
+          element.classList.add("hide");
+        });
+
+        const categoryContainer = document.getElementById("category-container");
+
+        if (categoryContainer instanceof HTMLElement) {
+          categoryContainer.classList.remove("hide");
+        }
+
+      }
+    }
+  }
+
   return (
     <div className="body">
       <div className="registration-logo-container">
@@ -163,8 +217,8 @@ export default function Page() {
       </div>
 
       <form onSubmit={submitForm} className="form">
-        <button className="go-back">
-          <IoMdArrowRoundBack />
+        <button onClick={undoCategory} className="go-back transparent hide" id="revert">
+          <IoMdArrowRoundBack className="transparent"/>
         </button>
         <div className="flex-container" id="category-container">
           <label htmlFor="category" className="transparent">Enter the Competition Category
