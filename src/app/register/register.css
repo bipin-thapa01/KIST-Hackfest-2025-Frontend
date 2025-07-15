@@ -1,0 +1,126 @@
+
+.registration-logo-container{
+  width: 500px;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 250px);
+  background-color: transparent;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  z-index: 2;
+}
+
+.registration-logo{
+  width: 80px;
+  border-radius: 50%;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+  background-color: inherit;
+}
+
+.head{
+  background-color: inherit;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.text{
+  background-color: inherit;
+  font-size: 16px;
+}
+
+.registration-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.form{
+  z-index: 2;
+  background-color: rgb(3, 1, 15);
+  border: 1px solid rgba(151, 149, 149, 0.421);
+  position: absolute;
+  top: 280px;
+  left: calc(50% - 250px);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  color: white;
+}
+
+.select{
+  color: white;
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  padding-left: 10px;
+  border: 1px solid rgba(173, 173, 173, 0.506);
+  border-radius: 5px;
+}
+
+.submit-category-button, .submit-form-button{
+  color: white;
+  background-color: rgb(3, 57, 79) !important;
+  border: none;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: calc(50% - 20% - 10px);
+  cursor: pointer;
+}
+
+.submit-category-button:hover, .submit-form-button:hover{
+  background-color: rgb(6, 88, 121) !important;
+}
+
+.input{
+  width: 100%;
+  height: 35px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.46);
+  color: white;
+}
+
+.transparent{
+  background-color: rgb(3, 1, 15);
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: rgb(3, 1, 15);
+}
+
+.flex-container > *{
+  background-color: rgb(3, 1, 15);
+}
+
+.asterisk{
+  color: rgb(161, 2, 2);
+  margin-left: 4px;
+}
+
+.hide{
+  display: none;
+}
