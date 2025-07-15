@@ -4,8 +4,11 @@ import { FaLocationCrosshairs } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { GrPersonalComputer } from "react-icons/gr";
 import { FaCode } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function Card2() {
+
+  const router = useRouter();
 
   const cross = () =>{
     const popup = document.getElementById('popup');
@@ -21,6 +24,10 @@ export default function Card2() {
     if(body instanceof HTMLElement){
       body.style.overflow = '';
     }
+  }
+
+  const registerForm = () =>{
+    router.push("/register");
   }
 
   return (
@@ -78,7 +85,7 @@ export default function Card2() {
             </div>
           </div>
         </div>
-        <button className="register-button">Register Now</button>
+        <button className="register-button" onClick={registerForm}>Register Now</button>
       </div>
     </>
   );

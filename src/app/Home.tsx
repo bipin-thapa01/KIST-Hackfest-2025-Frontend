@@ -3,18 +3,18 @@
 import { useRouter } from "next/navigation";
 import "./page.css";
 
-export default function Home(){
+export default function Home() {
   const router = useRouter();
 
-  const handleClick = () =>{
+  const handleClick = () => {
     router.push('/about');
   }
 
-  return(
+  return (
     <>
       <div className="hackfest-container">
         <div className="text-hackfest-main">
-        KIST Hackfest 2025
+          KIST Hackfest 2025
         </div>
         <div className="text-hackfest-sub">
           Hack your future.
