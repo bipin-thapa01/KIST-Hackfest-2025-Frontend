@@ -26,6 +26,7 @@
   border:20px solid #0EA5E9;
   border-radius: 50%;
   cursor: pointer;
+  margin: 5px 0 0 5px;
 }
 
 .hackfest-container{
