@@ -69,11 +69,11 @@ export default function Page() {
 
         formOutput.members = members;
         //for hackathon database
-        const res = await fetch('', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formOutput),
-        });
+        // const res = await fetch('', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(formOutput),
+        // });
 
       }
       else {
@@ -85,20 +85,20 @@ export default function Page() {
 
         if (category.value === "Code War") {
           //for codewar database
-          const res = await fetch('', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formOutput),
-          });
+          // const res = await fetch('', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify(formOutput),
+          // });
 
         }
         else {
           //for ui/ux database
-          const res = await fetch('', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formOutput),
-          });
+          // const res = await fetch('', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify(formOutput),
+          // });
 
         }
       }
