@@ -4,9 +4,12 @@ import "../page.css";
 import "../about/about.css";
 import "./register.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Page() {
+
+  const router = useRouter();
 
   useEffect(() => {
     const height = document.documentElement.scrollHeight;
@@ -56,17 +59,17 @@ export default function Page() {
 
         formOutput.members = members;
 
-        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === ""){
+        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === "" || !formOutput.email.includes("@")){
           alert("Fill all the details with correct format!");
           return;
         }
 
         //for hackathon database
-        // const res = await fetch('', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(formOutput),
-        // });
+        const res = await fetch('http://localhost:3003/hackathon', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formOutput),
+        });
 
       }
       else {
@@ -82,25 +85,27 @@ export default function Page() {
         }
 
         if (category.value === "Code War") {
-          //for codewar database
-          // const res = await fetch('', {
-          //   method: 'POST',
-          //   headers: { 'Content-Type': 'application/json' },
-          //   body: JSON.stringify(formOutput),
-          // });
+          // for codewar database
+          const res = await fetch('http://localhost:3003/code-wars', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formOutput),
+          });
 
         }
         else {
-          //for ui/ux database
-          // const res = await fetch('', {
-          //   method: 'POST',
-          //   headers: { 'Content-Type': 'application/json' },
-          //   body: JSON.stringify(formOutput),
-          // });
+          // for ui/ux database
+          const res = await fetch('http://localhost:3003/ui-ux', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formOutput),
+          });
 
         }
       }
     }
+
+    router.push("/");
   }
 
   const chooseCategory = () => {
@@ -299,7 +304,7 @@ export default function Page() {
             <option value="+2">+2</option>
           </select>
         </div>
-        <button onClick={submitForm} className="submit-form-button hide common-class" type="submit">Submit</button>
+        <button onSubmit={submitForm} className="submit-form-button hide common-class" type="submit">Submit</button>
       </form>
 
       <div className="registration-background" id="reg-bg">
