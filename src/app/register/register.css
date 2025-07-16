@@ -67,6 +67,11 @@
   margin-bottom: 20px;
 }
 
+label{
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .select{
   color: white;
   width: 100%;
@@ -90,6 +95,15 @@
 
 .submit-category-button:hover, .submit-form-button:hover{
   background-color: rgb(6, 88, 121) !important;
+}
+
+.member-container{
+  /* border: 1px solid rgba(255, 255, 255, 0.526); */
+  border-radius: 10px;
+  padding: 4px 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .input{

@@ -8,18 +8,18 @@ import { useEffect } from "react";
 
 export default function Page() {
 
-  useEffect(() =>{
+  useEffect(() => {
     const height = document.documentElement.scrollHeight;
     const blur = document.getElementById('reg-bg');
-    if(blur instanceof HTMLElement){
+    if (blur instanceof HTMLElement) {
       blur.style.height = `${height}px`;
     }
-  },[]);
+  }, []);
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formOutput: { [key: string]: string | object } = {};
+    const formOutput: { members?: { [key: string]: string }, [key: string]: any } = {};
 
     const email = document.getElementById("email") as HTMLInputElement;
 
@@ -33,7 +33,7 @@ export default function Page() {
       formOutput.number = number.value;
     }
 
-    const faculty = document.getElementById("faculty") as HTMLInputElement;
+    const faculty = document.getElementById("faculty") as HTMLSelectElement;
 
     if (faculty instanceof HTMLElement) {
       formOutput.faculty = faculty.value;
@@ -46,37 +46,21 @@ export default function Page() {
 
         const members: { [key: string]: string } = {};
 
-        const member1 = document.getElementById("member1") as HTMLInputElement;
-
-        if (member1 instanceof HTMLElement) {
-          members.member1 = member1.value;
-        }
-
-        const member2 = document.getElementById("member2") as HTMLInputElement;
-
-        if (member2 instanceof HTMLElement) {
-          members.member2 = member2.value;
-        }
-
-        const member3 = document.getElementById("member3") as HTMLInputElement;
-
-        if (member3 instanceof HTMLElement) {
-          members.member3 = member3.value;
-        }
-
-        const member4 = document.getElementById("member4") as HTMLInputElement;
-
-        if (member4 instanceof HTMLElement) {
-          members.member4 = member4.value;
-        }
-
-        const member5 = document.getElementById("member5") as HTMLInputElement;
-
-        if (member5 instanceof HTMLElement) {
-          members.member5 = member5.value;
+        for (let i = 1; i <= 5; i++) {
+          const input = document.getElementById(`member${i}`) as HTMLInputElement | null;
+        
+          if (input && input instanceof HTMLInputElement) {
+            members[`member${i}`] = input.value;
+          }
         }
 
         formOutput.members = members;
+
+        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === ""){
+          alert("Fill all the details with correct format!");
+          return;
+        }
+
         //for hackathon database
         // const res = await fetch('', {
         //   method: 'POST',
@@ -90,6 +74,11 @@ export default function Page() {
 
         if (name instanceof HTMLElement) {
           formOutput.name = name.value;
+        }
+
+        if(formOutput.name === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === ""){
+          alert("Fill all the details with correct format!");
+          return;
         }
 
         if (category.value === "Code War") {
@@ -118,7 +107,7 @@ export default function Page() {
 
     const revert = document.getElementById("revert");
 
-    if(revert instanceof HTMLElement){
+    if (revert instanceof HTMLElement) {
       revert.classList.remove("hide");
     }
 
@@ -163,10 +152,10 @@ export default function Page() {
     }
   }
 
-  const undoCategory = () =>{
+  const undoCategory = () => {
     const revert = document.getElementById("revert");
 
-    if(revert instanceof HTMLElement){
+    if (revert instanceof HTMLElement) {
       revert.classList.add("hide");
     }
 
@@ -211,38 +200,6 @@ export default function Page() {
     }
   }
 
-  //e: React.ChangeEvent<HTMLInputElement>
-
-  const checkMembers = () =>{
-
-  }
-
-  const checkName = () =>{
-
-  }
-
-  const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
-    if(e.target.value === ""){
-      e.target.style.borderBlockColor = "red";
-    }
-    else{
-      e.target.style.borderBlockColor = "white";
-    }
-  }
-
-  const checkNumber = (e: React.ChangeEvent<HTMLInputElement>) =>{
-    if(e.target.value === "" ){
-      e.target.style.borderBlockColor = "red";
-    }
-    else{
-      e.target.style.borderBlockColor = "white";
-    }
-  }
-
-  const checkFaculty = () =>{
-
-  }
-
   return (
     <div className="body">
       <div className="registration-logo-container">
@@ -258,8 +215,8 @@ export default function Page() {
       </div>
 
       <form onSubmit={submitForm} className="form">
-        <button onClick={undoCategory} className="go-back transparent hide" id="revert">
-          <IoMdArrowRoundBack className="transparent"/>
+        <button type="button" onClick={undoCategory} className="go-back transparent hide" id="revert">
+          <IoMdArrowRoundBack className="transparent" />
         </button>
         <div className="flex-container" id="category-container">
           <label htmlFor="category" className="transparent">Enter the Competition Category
@@ -271,40 +228,76 @@ export default function Page() {
             <option value="UI/UX">UI/UX</option>
           </select>
         </div>
-        <button onClick={chooseCategory} className="submit-category-button" id="category-button-id">Next</button>
+        <button type="button" onClick={chooseCategory} className="submit-category-button" id="category-button-id">Next</button>
         <div className="flex-container hide" id="hackathon-names">
           <label htmlFor="name">Team Members
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="member1" id="member1" className="input" placeholder="Member 1" autoComplete="off" onChange={checkMembers}/>
-          <input type="text" name="member2" id="member2" className="input" placeholder="Member 2" autoComplete="off" onChange={checkMembers}/>
-          <input type="text" name="member3" id="member3" className="input" placeholder="Member 3" autoComplete="off" onChange={checkMembers}/>
-          <input type="text" name="member4" id="member4" className="input" placeholder="Member 4" autoComplete="off" />
-          <input type="text" name="member5" id="member5" className="input" placeholder="Member 5" autoComplete="off" />
+          <div className="transaprent member-container">
+            <div className="transparent">Member 1
+              <span className="asterisk transparent">*</span>
+            </div>
+            <input type="text" name="member1" id="member1" className="input transparent" placeholder="Member 1 Name" autoComplete="off"/>
+            <input type="text" name="id1" id="id1" className="input transparent" placeholder="Member 1 ID (eg: 7079)" autoComplete="off"/>
+          </div>
+          <div className="transaprent member-container">
+            <div className="transparent">Member 2
+              <span className="asterisk transparent">*</span>
+            </div>
+            <input type="text" name="member2" id="member2" className="input transparent" placeholder="Member 2 Name" autoComplete="off"/>
+            <input type="text" name="id2" id="id2" className="input transparent" placeholder="Member 2 ID" autoComplete="off"/>
+          </div>
+          <div className="transparent member-container">
+            <div className="transparent">Member 3
+              <span className="asterisk transparent">*</span>
+            </div>
+            <input type="text" name="member3" id="member3" className="input transparent" placeholder="Member 3 Name" autoComplete="off"/>
+            <input type="text" name="id3" id="id3" className="input transparent" placeholder="Member 3 ID" autoComplete="off"/>
+          </div>
+          <div className="transparent member-container">
+            <div className="transparent">Member 4
+            </div>
+            <input type="text" name="member4" id="member4" className="input transparent" placeholder="Member 4 Name" autoComplete="off" />
+            <input type="text" name="id4" id="id4" className="input transparent" placeholder="Member 4 ID" autoComplete="off"/>
+          </div>
+          <div className="transparent member-container">
+            <div className="transparent">Member 5
+            </div>
+            <input type="text" name="member5" id="member5" className="input transparent" placeholder="Member 5 Name" autoComplete="off" />
+            <input type="text" name="id5" id="id5" className="input transparent" placeholder="Member 5 ID" autoComplete="off" />
+          </div>
         </div>
         <div className="flex-container hide" id="other-name">
           <label htmlFor="name">Participant Name
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="name" className="input" placeholder="Enter your name" autoComplete="off" onChange={checkName}/>
+          <div className="transparent member-container">
+          <input type="text" name="name" className="input transparent" placeholder="Enter your name" autoComplete="off"/>
+          <input type="text" name="id" id="id" className="input transparent" placeholder="Participants ID (eg: 7079)" autoComplete="off"/>
+          </div>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="email">Email Address
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="email" id="email" className="input" placeholder="Enter your email address" autoComplete="off" onChange={checkEmail}/>
+          <input type="text" name="email" id="email" className="input" placeholder="Enter your email address" autoComplete="off"/>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="number">Phone Number
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="number" id="number" className="input" placeholder="Enter your phone number" autoComplete="off" onChange={checkNumber}/>
+          <input type="text" name="number" id="number" className="input" placeholder="Enter your phone number" autoComplete="off"/>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="faculty">Faculty
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="faculty" id="faculty" className="input" placeholder="Enter your faculty" autoComplete="off" onChange={checkFaculty}/>
+          <select name="faculty" id="faculty" className="select  transparent">
+            <option value="BIT">BIT</option>
+            <option value="BIM">BIM</option>
+            <option value="BBA">BBA</option>
+            <option value="+2">+2</option>
+          </select>
         </div>
         <button onClick={submitForm} className="submit-form-button hide common-class" type="submit">Submit</button>
       </form>
