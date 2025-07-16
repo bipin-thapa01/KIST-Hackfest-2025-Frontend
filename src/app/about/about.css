@@ -52,7 +52,7 @@
 
 .about-the-event, .competitions{
   position: fixed;
-  top: 200px;
+  top: calc(50% - 200px);
   background-color: rgb(7, 92, 126);
   width: 500px;
   left: calc(50% - 250px);
@@ -166,7 +166,7 @@
 
 @media (max-width: 550px){
   .about-the-event, .competitions{
-    top: calc(50vh - 200px);
+    top: 150px;
     width: 90vw;
     left: 5vw;
   }
