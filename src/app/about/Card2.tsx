@@ -21,8 +21,15 @@ export default function Card2() {
       competition.style.display = 'none';
     }
     const body = document.getElementById('main-container');
+    const html = document.documentElement;
     if(body instanceof HTMLElement){
-      body.style.overflow = '';
+      body.style.overflow = "";
+      body.style.overscrollBehavior = "";
+      body.style.touchAction = "";
+
+      html.style.overflow = "";
+      html.style.overscrollBehavior = "";
+      html.style.touchAction = "";
     }
   }
 

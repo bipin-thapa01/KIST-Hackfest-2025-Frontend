@@ -33,8 +33,15 @@ export default function Page() {
       event.style.display = 'flex';
     }
     const body = document.getElementById('main-container');
+    const html = document.documentElement;
     if(body instanceof HTMLElement){
       body.style.overflow = 'hidden';
+      body.style.overscrollBehavior = "none";
+      body.style.touchAction = "none";
+
+      html.style.overflow = "hidden";
+      html.style.overscrollBehavior = "none";
+      html.style.touchAction = "none";
     }
   }
 
@@ -49,8 +56,15 @@ export default function Page() {
       competition.style.display = 'flex';
     }
     const body = document.getElementById('main-container');
+    const html = document.documentElement;
     if(body instanceof HTMLElement){
       body.style.overflow = 'hidden';
+      body.style.overscrollBehavior = "none";
+      body.style.touchAction = "none";
+
+      html.style.overflow = "hidden";
+      html.style.overscrollBehavior = "none";
+      html.style.touchAction = "none";
     }
   }
 
@@ -61,8 +75,15 @@ export default function Page() {
        popup.style.pointerEvents = 'auto';
     }
     const body = document.getElementById('main-container');
+    const html = document.documentElement;
     if(body instanceof HTMLElement){
       body.style.overflow = 'hidden';
+      body.style.overscrollBehavior = "none";
+      body.style.touchAction = "none";
+
+      html.style.overflow = "hidden";
+      html.style.overscrollBehavior = "none";
+      html.style.touchAction = "none";
     }
   }
 
