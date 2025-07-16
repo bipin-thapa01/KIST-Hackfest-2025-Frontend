@@ -4,8 +4,17 @@ import "../page.css";
 import "../about/about.css";
 import "./register.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useEffect } from "react";
 
 export default function Page() {
+
+  useEffect(() =>{
+    const height = document.documentElement.scrollHeight;
+    const blur = document.getElementById('reg-bg');
+    if(blur instanceof HTMLElement){
+      blur.style.height = `${height}px`;
+    }
+  },[]);
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -202,6 +211,36 @@ export default function Page() {
     }
   }
 
+  const checkMembers = (e: React.ChangeEvent<HTMLInputElement>) =>{
+
+  }
+
+  const checkName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+
+  }
+
+  const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    if(e.target.value === ""){
+      e.target.style.borderBlockColor = "red";
+    }
+    else{
+      e.target.style.borderBlockColor = "white";
+    }
+  }
+
+  const checkNumber = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    if(e.target.value === "" ){
+      e.target.style.borderBlockColor = "red";
+    }
+    else{
+      e.target.style.borderBlockColor = "white";
+    }
+  }
+
+  const checkFaculty = (e: React.ChangeEvent<HTMLInputElement>) =>{
+
+  }
+
   return (
     <div className="body">
       <div className="registration-logo-container">
@@ -235,9 +274,9 @@ export default function Page() {
           <label htmlFor="name">Team Members
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="member1" id="member1" className="input" placeholder="Member 1" autoComplete="off" />
-          <input type="text" name="member2" id="member2" className="input" placeholder="Member 2" autoComplete="off" />
-          <input type="text" name="member3" id="member3" className="input" placeholder="Member 3" autoComplete="off" />
+          <input type="text" name="member1" id="member1" className="input" placeholder="Member 1" autoComplete="off" onChange={checkMembers}/>
+          <input type="text" name="member2" id="member2" className="input" placeholder="Member 2" autoComplete="off" onChange={checkMembers}/>
+          <input type="text" name="member3" id="member3" className="input" placeholder="Member 3" autoComplete="off" onChange={checkMembers}/>
           <input type="text" name="member4" id="member4" className="input" placeholder="Member 4" autoComplete="off" />
           <input type="text" name="member5" id="member5" className="input" placeholder="Member 5" autoComplete="off" />
         </div>
@@ -245,30 +284,30 @@ export default function Page() {
           <label htmlFor="name">Participant Name
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="name" className="input" placeholder="Enter your name" autoComplete="off" />
+          <input type="text" name="name" className="input" placeholder="Enter your name" autoComplete="off" onChange={checkName}/>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="email">Email Address
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="email" id="email" className="input" placeholder="Enter your email address" autoComplete="off" />
+          <input type="text" name="email" id="email" className="input" placeholder="Enter your email address" autoComplete="off" onChange={checkEmail}/>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="number">Phone Number
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="number" id="number" className="input" placeholder="Enter your phone number" autoComplete="off" />
+          <input type="text" name="number" id="number" className="input" placeholder="Enter your phone number" autoComplete="off" onChange={checkNumber}/>
         </div>
         <div className="flex-container hide common-class">
           <label htmlFor="faculty">Faculty
             <span className="asterisk transparent">*</span>
           </label>
-          <input type="text" name="faculty" id="faculty" className="input" placeholder="Enter your faculty" autoComplete="off" />
+          <input type="text" name="faculty" id="faculty" className="input" placeholder="Enter your faculty" autoComplete="off" onChange={checkFaculty}/>
         </div>
         <button onClick={submitForm} className="submit-form-button hide common-class" type="submit">Submit</button>
       </form>
 
-      <div className="registration-background">
+      <div className="registration-background" id="reg-bg">
       </div>
 
     </div>

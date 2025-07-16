@@ -3,11 +3,20 @@
 import { useRouter } from "next/navigation";
 import Card1 from "./Card1";
 import Card2 from "./Card2";
+import { useEffect } from "react";
 import "../page.css";
 import "./about.css";
 
 export default function Page() {
   const router = useRouter();
+  
+  useEffect(() =>{
+    const height = document.documentElement.scrollHeight;
+    const blur = document.getElementById('popup');
+    if(blur instanceof HTMLElement){
+      blur.style.height = `${height}px`;
+    }
+  },[]);
 
   const home = () => {
     router.push('/');

@@ -1,6 +1,5 @@
 .body{
   overflow: auto;
-  will-change: transform;
 }
 
 .hackfest-container{
