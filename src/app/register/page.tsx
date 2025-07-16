@@ -25,6 +25,10 @@ export default function Page() {
     interface MemberData {
       [key: string]: string;
     }
+
+    interface idData{
+      [key: string]: string;
+    }
     
     interface FormOutput {
       email?: string;
@@ -32,6 +36,7 @@ export default function Page() {
       faculty?: string;
       name?: string;
       members?: MemberData;
+      id?: idData | string;
     }
     
 
@@ -73,7 +78,19 @@ export default function Page() {
 
         formOutput.members = members;
 
-        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
+        const id: { [key: string]: string } = {};
+
+        for (let i = 1; i <= 5; i++) {
+          const input = document.getElementById(`id${i}`) as HTMLInputElement | null;
+        
+          if (input && input instanceof HTMLInputElement) {
+            id[`id${i}`] = input.value;
+          }
+        }
+
+        formOutput.id = id;
+
+        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.id.id1 === "" || formOutput.id.id2 === "" || formOutput.id.id3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
           alert("Fill all the details with correct format!");
           return;
         }
@@ -95,7 +112,13 @@ export default function Page() {
           formOutput.name = name.value;
         }
 
-        if(formOutput.name === "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
+        const id = document.getElementById("id") as HTMLInputElement;
+
+        if (id instanceof HTMLElement) {
+          formOutput.id = id.value;
+        }
+
+        if(formOutput.name === "" || formOutput.id == "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
           alert("Fill all the details with correct format!");
           return;
         }
