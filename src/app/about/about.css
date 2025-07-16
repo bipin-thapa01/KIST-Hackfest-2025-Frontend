@@ -165,7 +165,7 @@
 
 @media (max-width: 550px){
   .about-the-event, .competitions{
-    top: 150px;
+    top: 100px;
     width: 90vw;
     left: 5vw;
   }
