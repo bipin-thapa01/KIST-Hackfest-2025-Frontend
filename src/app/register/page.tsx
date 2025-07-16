@@ -22,7 +22,21 @@ export default function Page() {
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formOutput: { members?: { [key: string]: string }, [key: string]: any } = {};
+    interface MemberData {
+      [key: string]: string;
+    }
+    
+    interface FormOutput {
+      email?: string;
+      number?: string;
+      faculty?: string;
+      name?: string;
+      members?: MemberData;
+    }
+    
+
+    const formOutput: FormOutput = {};
+
 
     const email = document.getElementById("email") as HTMLInputElement;
 
@@ -59,7 +73,7 @@ export default function Page() {
 
         formOutput.members = members;
 
-        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === "" || !formOutput.email.includes("@")){
+        if(formOutput.members.member1 === "" || formOutput.members.member2 === "" || formOutput.members.member3 === "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
           alert("Fill all the details with correct format!");
           return;
         }
@@ -71,6 +85,8 @@ export default function Page() {
           body: JSON.stringify(formOutput),
         });
 
+        console.log(res);
+
       }
       else {
         const name = document.getElementById("other-name") as HTMLInputElement;
@@ -79,7 +95,7 @@ export default function Page() {
           formOutput.name = name.value;
         }
 
-        if(formOutput.name === "" || formOutput.email === "" || formOutput.number === "" || isNaN(formOutput.number) || formOutput.faculty === ""){
+        if(formOutput.name === "" || formOutput.email === "" || formOutput.number === "" || isNaN(Number(formOutput.number ?? "")) || formOutput.faculty === "" || !formOutput.email?.includes("@")){
           alert("Fill all the details with correct format!");
           return;
         }
@@ -92,6 +108,8 @@ export default function Page() {
             body: JSON.stringify(formOutput),
           });
 
+          console.log(res);
+
         }
         else {
           // for ui/ux database
@@ -100,6 +118,8 @@ export default function Page() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formOutput),
           });
+
+          console.log(res);
 
         }
       }
