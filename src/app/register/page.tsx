@@ -211,35 +211,37 @@ export default function Page() {
     }
   }
 
-  // const checkMembers = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  //e: React.ChangeEvent<HTMLInputElement>
 
-  // }
+  const checkMembers = () =>{
 
-  // const checkName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  }
 
-  // }
+  const checkName = () =>{
 
-  // const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
-  //   if(e.target.value === ""){
-  //     e.target.style.borderBlockColor = "red";
-  //   }
-  //   else{
-  //     e.target.style.borderBlockColor = "white";
-  //   }
-  // }
+  }
 
-  // const checkNumber = (e: React.ChangeEvent<HTMLInputElement>) =>{
-  //   if(e.target.value === "" ){
-  //     e.target.style.borderBlockColor = "red";
-  //   }
-  //   else{
-  //     e.target.style.borderBlockColor = "white";
-  //   }
-  // }
+  const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    if(e.target.value === ""){
+      e.target.style.borderBlockColor = "red";
+    }
+    else{
+      e.target.style.borderBlockColor = "white";
+    }
+  }
 
-  // const checkFaculty = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const checkNumber = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    if(e.target.value === "" ){
+      e.target.style.borderBlockColor = "red";
+    }
+    else{
+      e.target.style.borderBlockColor = "white";
+    }
+  }
 
-  // }
+  const checkFaculty = () =>{
+
+  }
 
   return (
     <div className="body">
