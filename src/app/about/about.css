@@ -52,7 +52,7 @@
 
 .about-the-event, .competitions{
   position: fixed;
-  top: calc(50vh - 250px);
+  top: 200px;
   background-color: rgb(7, 92, 126);
   width: 500px;
   left: calc(50% - 250px);
