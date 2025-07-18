@@ -68,24 +68,24 @@ export default function Page() {
     }
   }
 
-  const popup3 = () =>{
-    const popup = document.getElementById('popup');
-    if(popup instanceof HTMLElement){
-       popup.style.opacity = '0.9';
-       popup.style.pointerEvents = 'auto';
-    }
-    const body = document.getElementById('main-container');
-    const html = document.documentElement;
-    if(body instanceof HTMLElement){
-      body.style.overflow = 'hidden';
-      body.style.overscrollBehavior = "none";
-      body.style.touchAction = "none";
+  // const popup3 = () =>{
+  //   const popup = document.getElementById('popup');
+  //   if(popup instanceof HTMLElement){
+  //      popup.style.opacity = '0.9';
+  //      popup.style.pointerEvents = 'auto';
+  //   }
+  //   const body = document.getElementById('main-container');
+  //   const html = document.documentElement;
+  //   if(body instanceof HTMLElement){
+  //     body.style.overflow = 'hidden';
+  //     body.style.overscrollBehavior = "none";
+  //     body.style.touchAction = "none";
 
-      html.style.overflow = "hidden";
-      html.style.overscrollBehavior = "none";
-      html.style.touchAction = "none";
-    }
-  }
+  //     html.style.overflow = "hidden";
+  //     html.style.overscrollBehavior = "none";
+  //     html.style.touchAction = "none";
+  //   }
+  // }
 
   return (
     <div className="body" id="main-container">
@@ -116,14 +116,14 @@ export default function Page() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ad similique dicta temporibus necessitatibus aperiam, doloribus quidem debitis numquam praesentium, dolorum assumenda sunt amet aut libero modi error ut aliquid sed quis expedita fugit.
           </div>
         </div>
-        <div className="card3" onClick={popup3}>
+        {/* <div className="card3" onClick={popup3}>
           <div className="card3-head">
             About the Event
           </div>
           <div className="card3-description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ad similique dicta temporibus necessitatibus aperiam, doloribus quidem debitis numquam praesentium, dolorum assumenda sunt amet aut libero modi error ut aliquid sed quis expedita fugit.
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Card1/>
