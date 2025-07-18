@@ -147,6 +147,20 @@ label{
   cursor: pointer;
 }
 
+.noti-card{
+  position: fixed;
+  right: 10px;
+  top: 20px;
+  color: white;
+}
+
+.noti-icon{
+}
+
+.noti-message{
+
+}
+
 @media (max-width: 550px){
   .form{
     top: 200px;

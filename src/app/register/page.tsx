@@ -3,11 +3,14 @@
 import "../page.css";
 import "../about/about.css";
 import "./register.css";
+import NotiCard from "./NotiCard";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Page() {
+
+  let notificationMessage = "";
 
   const router = useRouter();
 
@@ -250,6 +253,9 @@ export default function Page() {
 
   return (
     <div className="body">
+
+      <NotiCard message={notificationMessage}/>
+
       <div className="registration-logo-container">
         <img src="logo.jpg" alt="logo" className="registration-logo" />
         <div className="text-container">

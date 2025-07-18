@@ -52,7 +52,7 @@
 
 .about-the-event, .competitions{
   position: fixed;
-  top: calc(50% - 200px);
+  top: calc(50% - 300px);
   background-color: rgb(7, 92, 126);
   width: 500px;
   left: calc(50% - 250px);
@@ -64,6 +64,10 @@
   padding-bottom: 20px;
   display: none;
   z-index: 10;
+}
+
+.about-the-event{
+  top: calc(50% - 250px);
 }
 
 .about-the-event-head, .competitions-head{
