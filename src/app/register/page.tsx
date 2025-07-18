@@ -248,10 +248,14 @@ export default function Page() {
     }
   }
 
+  const redirect = () =>{
+    router.push('/');
+  }
+
   return (
     <div className="body">
 
-      <div className="registration-logo-container">
+      <div className="registration-logo-container" onClick={redirect}>
         <img src="logo.jpg" alt="logo" className="registration-logo" />
         <div className="text-container">
           <div className="head">
