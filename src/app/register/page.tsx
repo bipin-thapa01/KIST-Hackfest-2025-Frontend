@@ -9,8 +9,6 @@ import { useEffect } from "react";
 
 export default function Page() {
 
-  let notificationMessage = "";
-
   const router = useRouter();
 
   useEffect(() => {
